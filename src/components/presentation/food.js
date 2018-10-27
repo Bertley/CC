@@ -1,27 +1,44 @@
 import React, {Component} from 'react'; 
-import { View, Text, StyleSheet } from 'react-native'; 
-
+import { View, Text, Image } from 'react-native'
+import { Card, ListItem, Button, StyleSheet, Tile } from 'react-native-elements'
+import config from "../../config"
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Food extends Component {
 
     render(){
         return(
-            <View style={styles.foodCard}>
+            <Card
+                containerStyle={{
+                    width:46 + "%", 
+                    marginLeft: 2 + '%', 
+                    marginRight: 2 + '%',
+                    shadowColor: 'transparent', 
 
-            </View>
+                }}
+                image={config.images.logo}>
+                <Text
+                    style={{
+                        textAlign: "center",
+                        marginBottom: 10
+                    }}
+                >Chicken</Text>
+                <Button
+                    icon={
+                        <Icon
+                        name='plus-square'
+                        size={15}
+                        color='white'
+                        />
+                    }
+                    iconRight
+                    backgroundColor='#03A9F4'
+                    buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0, backgroundColor: "#000"}}
+                    title= "333 Calories" />
+            </Card>
         )
     }
 }
 
-const styles = StyleSheet.create({
-    foodCard:{
-        width: 48 + '%', 
-        backgroundColor: "#000", 
-        height: 250, 
-        marginRight: 1 + "%", 
-        marginLeft: 1 + "%", 
-        marginTop: 5,
-    }
-});
 
 export default Food

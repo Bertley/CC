@@ -3,7 +3,8 @@ import {FlatList, ScrollView} from "react-native";
 import { Food } from '../presentation';
 
 const numColumns = 2; 
-class FoodFeed extends Component {
+
+class HomeFeed extends Component {
     _renderFood({item}){
         return<Food item={item}/>; 
     }
@@ -12,12 +13,12 @@ class FoodFeed extends Component {
     }
     render(){
         return <FlatList
-            data={[ 1,2,3,4,5]}
+            data={[ 1,2,3,]}
             keyExtractor={this._returnKey}
             renderItem={this._renderFood}
             numColumns={numColumns}
-        />;
+        />
     }
 }
 
-export default FoodFeed; 
+export default HomeFeed; 

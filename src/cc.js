@@ -6,8 +6,8 @@ import { createSwitchNavigator, createBottomTabNavigator, createStackNavigator} 
 
 const Tabs = createBottomTabNavigator({
     "Home": Home, 
-    "Search": Search, 
-    "Your Items": YourItems
+    "Search": Search,
+    "My CC": YourItems,  
 });
 
 const IntroStack = createStackNavigator({
@@ -16,8 +16,9 @@ const IntroStack = createStackNavigator({
 });
 
 const MainStack = createSwitchNavigator({
-    intro: IntroStack,
     main: Tabs, 
+    intro: IntroStack,
+    
 }); 
 
 class CC extends Component {

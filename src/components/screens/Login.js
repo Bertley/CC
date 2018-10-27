@@ -1,5 +1,5 @@
 import React, {Component} from 'react'; 
-import {View, Text, StyleSheet, TouchableOpacity, TextInput, } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, TextInput,Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import config from '../../config'
@@ -59,6 +59,11 @@ class Login extends Component {
                         alignItems: "center",
                     }}
                 >
+                    <Image 
+                            style={{height: 100, width: 100}}
+                            source={config.images.logo}
+                        >
+                    </Image>
                     <TextInput                  
                          value={this.state.email} 
                          placeholder="Email"
