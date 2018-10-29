@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, FlatList} from 'react-native';
 import {FoodFeed, HomeFeed} from "../container"; 
 import config from "../../config"
-import { SearchBar, Button } from 'react-native-elements'; 
+import { Card, SearchBar, Button } from 'react-native-elements'; 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-
 class Home extends Component {
+
+    constructor(){
+        super(); 
+    }
 
     render() {
         return(
@@ -26,12 +29,35 @@ class Home extends Component {
                         }}
                     />
                 </View>
-                <View 
-                    style={{
-                        alignItems: "center"
-                    }}    
-                >
-                    <FoodFeed/>
+                <View>
+                    <Card
+                        containerStyle={{
+                            width:46 + "%", 
+                            marginLeft: 2 + '%', 
+                            marginRight: 2 + '%',
+                            shadowColor: 'transparent', 
+
+                        }}
+                        image={config.images.logo}>
+                        <Text
+                            style={{
+                                textAlign: "center",
+                                marginBottom: 10
+                            }}
+                        >Chicken</Text>
+                        <Button
+                            icon={
+                                <Icon
+                                name='plus-square'
+                                size={15}
+                                color='white'
+                                />
+                            }
+                            iconRight
+                            backgroundColor='#03A9F4'
+                            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0, backgroundColor: "#000"}}
+                            title= "333 Calories" />
+                    </Card>
                 </View>
             </View>
         )

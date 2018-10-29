@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, ScrollView} from 'react-native';
 import {FoodFeed, HomeFeed} from "../container"; 
 import config from "../../config"
 import { SearchBar, Button } from 'react-native-elements'; 
@@ -26,31 +26,13 @@ class Home extends Component {
         }); 
     }
 
-    login() {
-       return fetch(config.baseUrl + 'login', {
-           method: 'POST', 
-           headers: {
-               Accept: 'application/json', 
-               'Content-Type': 'application/json', 
-           }, 
-           body: JSON.stringify(this.state.credentials)
-       })
-       .then((response) => response.json())
-       .then(jsonResponse => {
-           if(jsonResponse.confirmation === "success"){
-               this.props.navigation.navigate('main')
-           } else {
-               throw new Error(jsonResponse.message); 
-           }
-       })
-       .catch(err => {
-           alert(JSON.stringify(err.message)); 
-       }); 
+    logout() {
+       this.props.navigation.navigate('intro');  
     }
 
     render() {
         return(
-            <View style={{ flex: 1, width: 100 + "%", height: 100 + "%"}}> 
+            <ScrollView style={{ flex: 1, width: 100 + "%", height: 100 + "%"}}> 
                 <View style={styles.yourItemTop}>
                     <Text
                         style={{
@@ -110,7 +92,7 @@ class Home extends Component {
                             borderWidth: 0,
                         }}
                         onPress={() => {
-                            this.login(); 
+                            this.logout(); 
                         }}
                     /> 
                 </View>
@@ -132,11 +114,9 @@ class Home extends Component {
                             alignItems:"center", 
                         }}
                     /> 
-                    <View>
-                        <HomeFeed/>
-                    </View>
+                    <HomeFeed/>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }

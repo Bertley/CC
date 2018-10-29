@@ -16,9 +16,8 @@ const IntroStack = createStackNavigator({
 });
 
 const MainStack = createSwitchNavigator({
-    main: Tabs, 
     intro: IntroStack,
-    
+    main: Tabs, 
 }); 
 
 class CC extends Component {

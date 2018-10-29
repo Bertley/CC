@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, ScrollView} from 'react-native';
 import {FoodFeed, HomeFeed} from "../container"; 
 import config from "../../config"
 import { SearchBar, Button } from 'react-native-elements'; 
@@ -12,6 +12,7 @@ class Home extends Component {
     render() {
         return(
             <View style={{ flex: 1, width: 100 + "%", height: 100 + "%"}}>
+                <ScrollView>
                 <View style={{
                     backgroundColor: "#fff"
                 }}>
@@ -52,16 +53,9 @@ class Home extends Component {
                             >View more</Text>
                         </TouchableOpacity>
                     </View>
-                    <View
-                        style={{
-                            flex: 1, 
-                            width: 100 + "%", 
-                            height: 100 + "%"
-                        }}
-                    >
-                        <HomeFeed/>
-                    </View>
+                    <HomeFeed/>
                 </View>
+                </ScrollView>
             </View>
         )
     }
